@@ -1,0 +1,31 @@
+{
+  "name": "real-advisor-test",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prod": "npm run build && npm start",
+    "migration": "cd real-advisor-hasura && hasura metadata apply --admin-secret <SECRET> && hasura migrate apply --database-name default --admin-secret <SECRET> && hasura metadata reload --admin-secret <SECRET> && cd ..",
+    "full:dev": "npm run migration && npm run dev",
+    "full:prod": "npm run migration && npm run prod"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.5.5",
+    "axios": "^0.24.0",
+    "graphql": "^16.0.1",
+    "next": "12.0.7",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.11",
+    "@types/react": "17.0.37",
+    "eslint": "8.4.0",
+    "eslint-config-next": "12.0.7",
+    "hasura-cli": "^2.0.9",
+    "typescript": "4.5.2"
+  }
+}
